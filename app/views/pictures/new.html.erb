@@ -1,0 +1,18 @@
+<h1>Add a picture</h1>
+<%= form_for(@picture) do |f| %>
+  <p>
+    <%= f.label :artist %><br>
+    <%= f.text_field :artist %>
+  </p>
+  <p>
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :label %><br>
+    <%= f.text_field :label %>
+  </p>
+  <p>
+    <%= f.submit "Save" %>
+  </p>
+<% end %>  

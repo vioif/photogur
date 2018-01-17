@@ -6,3 +6,33 @@
   <p><%= picture.title %>, <%= picture.artist %></p>
   <img src="<%= picture.url %>" alt="<%= picture.title %>">
 <% end %>
+
+<br>
+
+<h1>Most recent pictures</h1>
+
+<ul>
+  <% @most_recent_pictures.each do |picture| %>
+    <li><%= picture.title %></li>
+  <% end %>
+</ul>
+
+<br>
+
+<h1>Pictures from 2010</h1>
+
+<ul>
+  <% @pictures_from_one_month.each do |picture| %>
+    <li> <%= picture.title %></li>
+  <% end %>
+</ul>
+
+<br>
+
+<h1>Pictures from 2018</h1>
+
+<ul>
+  <% @pictures_from_2018.each do |picture| %>
+    <li> <%= picture.title %></li>
+  <% end %>
+</ul>

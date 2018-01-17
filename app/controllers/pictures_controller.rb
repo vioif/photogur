@@ -1,6 +1,11 @@
 class PicturesController < ApplicationController
   def index
-    @pictures = Picture.all
+
+    @pictures                  = Picture.all
+    @most_recent_pictures      = Picture.most_recent_five
+    @pictures_from_one_month   = Picture.created_before(1.month.from_now)
+    @pictures_from_2018        = Picture.created_before(2018)
+
   end
 
   def show
@@ -22,9 +27,9 @@ class PicturesController < ApplicationController
   def update
     @picture = Picture.find(params[:id])
 
-    @picture.title = params[:picture][:title]
+    @picture.title  = params[:picture][:title]
     @picture.artist = params[:picture][:artist]
-    @picture.url = params[:picture][:url]
+    @picture.url    = params[:picture][:url]
 
     if @picture.save
           redirect_to "/pictures/#{@picture.id}"

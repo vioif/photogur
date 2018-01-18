@@ -1,4 +1,12 @@
 class Picture < ApplicationRecord
+  validates :artist,  presence: true
+  validates :title, presence: true
+  validates :url,   presence: true
+
+  def validation_purposes
+    error.messages [:artist] << "must be present"
+    error.messages [:url] << "unique url"
+  end
 
   def self.newest_first
     Picture.order("created_at DESC")

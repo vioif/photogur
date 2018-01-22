@@ -14,4 +14,8 @@ Rails.application.routes.draw do
 
   delete 'pictures/:id' => 'pictures#destroy'
 
+
+  get 'sessions/new' => 'sessions#new'
+  post 'sessions/create' => 'sessions#create'
+
 end

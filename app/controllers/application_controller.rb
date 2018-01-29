@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
   end
 
   helper_method :current_user
-  
+
   def new
     @picture = Picture.new
   end
@@ -31,4 +31,12 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def ensure_logged_in
+
+    unless current_user
+      flash[:alert] = "Please log in"
+      redirect_to new_sesion_url
+    end
+  end
+    
 end
